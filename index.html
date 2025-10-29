@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Up - Spark Meaningful Connections</title>
+    <meta name="description" content="Move beyond small talk with thoughtful questions designed to create genuine connections and memorable conversations.">
+    <meta name="Cayleigh" content="Get to know You Questions">
+    
+    <meta property="og:title" content="Date Questions - Spark Meaningful Connections">
+    <meta property="og:description" content="Thoughtful questions to create genuine connections on your dates">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-background"></div>
+            
+            <div class="container hero-content">
+                <div class="hero-inner">
+                    <div class="badge">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span>Spark Meaningful Connections</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Chatting Questions That'll Matter
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Move beyond small talk with thoughtful questions designed to create genuine connections and memorable conversations.
+                    </p>
+                    
+                    <div class="hero-input-group" style="padding-top: 2rem;">
+                        <input type="text" 
+                               id="question-context" 
+                               placeholder="e.g., travel-themed, funny, deep connection" 
+                               style="padding: 1rem; font-size: 1.125rem; border-radius: 1rem; border: 2px solid var(--primary); width: 100%; max-width: 400px; margin-bottom: 1rem;">
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large" onclick="generateQuestion()">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 14v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1"></path>
+                                <path d="M16 7l-4-4-4 4"></path>
+                                <path d="M12 3v12"></path>
+                            </svg>
+                            Generate Question
+                        </button>
+                        <button class="btn btn-outline" onclick="document.getElementById('question-context').value='thoughtful date question'; generateQuestion()">
+                            Random Question
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Questions Grid -->
+        <section class="questions-section">
+            <div class="container">
+                <!-- First Date Starters -->
+                <div class="category-group" id="dynamic-group">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zM12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <h2 class="category-title">Your AI-Generated Question</h2>
+                    </div>
+                    
+                    <div class="questions-grid">
+                        <div class="question-card" id="dynamic-question-output" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Powered by Gemini</span>
+                                <p id="loading-text" style="display: none;">Generating a question for you...</p>
+                                <p class="question-text">Enter a topic above and click 'Generate Question' to get started!</p>
+                                <p class="question-answer" style="display: none;"></p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-group">
+                    </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">First Date Starters</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">If you could have dinner with anyone, dead or alive, who would it be?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">First Date Starters</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">What's your go-to way to relax after a long day?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">First Date Starters</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">What's the best trip you've ever taken?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Conversations -->
+                <div class="category-group">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <h2 class="category-title">Deep Conversations</h2>
+                    </div>
+                    
+                    <div class="questions-grid">
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Deep Conversations</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">What moment in your life made you who you are today?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Deep Conversations</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">How do you define success for yourself?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Deep Conversations</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">What's something you believe that most people disagree with?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Deep Conversations</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">What does vulnerability mean to you?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fun & Playful -->
+                <div class="category-group">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h2 class="category-title">Fun & Playful</h2>
+                    </div>
+                    
+                    <div class="questions-grid">
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Fun & Playful</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">If you were a flavor of ice cream, what would you be and why?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Fun & Playful</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">What's your most embarrassing story you're willing to share?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Fun & Playful</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">If you could only eat one cuisine for the rest of your life, what would it be?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                        
+                        <div class="question-card" onclick="revealQuestion(this)">
+                            <div class="card-content">
+                                <span class="category-label">Fun & Playful</span>
+                                <p class="question-text">Click to reveal question</p>
+                                <p class="question-answer" style="display: none;">What's the most spontaneous thing you've ever done?</p>
+                            </div>
+                            <div class="card-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section class="footer-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Connect Deeper?</h2>
+                    <p class="cta-text">
+                        Great conversations start with great questions. Click any card to reveal a question and start your journey.
+                    </p>
+                    <button class="btn btn-primary btn-large">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        Start Exploring
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script-static.js"></script>
+</body>
+</html>

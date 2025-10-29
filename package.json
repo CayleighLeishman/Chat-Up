@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@google/genai": "^1.27.0"
+  },
+  "name": "chat-up",
+  "version": "1.0.0",
+  "description": "A site that generates questions to get to know people",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
